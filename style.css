@@ -373,7 +373,6 @@ section {
     overflow: hidden;
     margin-bottom: 20px;
     background-color: rgba(255, 255, 255, 0.03);
-    border-radius: 4px;
 }
 
 .portfolio-image img {
@@ -495,7 +494,6 @@ section {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 4px;
 }
 
 /* Contact Section */
