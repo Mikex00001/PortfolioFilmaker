@@ -368,7 +368,7 @@ section {
     letter-spacing: 1px;
 }
 
-/* Portfolio */
+/* Portfolio - ESTILOS GERAIS */
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
@@ -380,6 +380,8 @@ section {
     background-color: transparent;
     transition: var(--transition);
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .portfolio-item:hover {
@@ -393,13 +395,17 @@ section {
     margin-bottom: 20px;
     position: relative;
     aspect-ratio: 16/9;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
 }
 
 .portfolio-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     transition: transform 0.6s ease;
+    display: block;
 }
 
 .portfolio-item:hover .portfolio-image img {
@@ -419,6 +425,10 @@ section {
     font-weight: 300;
     color: var(--gray);
     letter-spacing: 1px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 10px;
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .portfolio-title {
@@ -426,6 +436,7 @@ section {
     font-weight: 300;
     margin-bottom: 10px;
     color: var(--white);
+    line-height: 1.3;
 }
 
 .portfolio-description {
@@ -433,6 +444,7 @@ section {
     font-weight: 300;
     color: var(--off-white);
     line-height: 1.6;
+    margin-top: 5px;
 }
 
 /* About Section */
@@ -652,8 +664,90 @@ section {
     box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
 }
 
-/* CENTRALIZAR ELEMENTOS NO MOBILE */
+/* ========== CORREÇÕES ESPECÍFICAS PARA PORTFÓLIO NO MOBILE ========== */
 @media (max-width: 768px) {
+    /* Portfolio Section - CORREÇÕES COMPLETAS */
+    .portfolio {
+        padding: 40px 0;
+        width: 100%;
+    }
+    
+    .portfolio .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+    
+    .portfolio-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .portfolio-item {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .portfolio-image {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 15px;
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .portfolio-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    .portfolio-info {
+        width: 100%;
+        padding: 0 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .portfolio-meta {
+        justify-content: center;
+        margin-bottom: 8px;
+        gap: 8px;
+    }
+    
+    .portfolio-year,
+    .portfolio-category {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .portfolio-title {
+        font-size: 1.1rem;
+        margin: 5px 0;
+        line-height: 1.3;
+        text-align: center;
+    }
+    
+    .portfolio-description {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        text-align: center;
+        margin-top: 5px;
+        padding: 0 5px;
+    }
+    
     /* Hero Section */
     .hero-content {
         text-align: center;
@@ -684,29 +778,7 @@ section {
     /* Section headers */
     .section-header {
         text-align: center;
-    }
-    
-    /* Portfolio */
-    .portfolio-grid {
-        justify-items: center;
-    }
-    
-    .portfolio-item {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .portfolio-meta {
-        justify-content: center;
-    }
-    
-    .portfolio-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        margin-bottom: 30px;
     }
     
     /* About Section */
@@ -726,6 +798,14 @@ section {
     
     .skills-list {
         justify-content: center;
+        gap: 8px;
+    }
+    
+    .skill-item {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+        white-space: normal;
+        text-align: center;
     }
     
     .about-image {
@@ -784,23 +864,13 @@ section {
         text-align: center;
         align-items: center;
     }
-    
-    .skills-list {
-        justify-content: center;
-        gap: 8px;
-    }
-    
-    .skill-item {
-        font-size: 0.75rem;
-        padding: 6px 12px;
-    }
 }
 
 /* Responsivo Mobile First */
 /* Telas muito pequenas (até 360px) */
 @media (max-width: 360px) {
     .container {
-        padding: 0 15px;
+        padding: 0 12px;
     }
     
     .hero-title {
@@ -812,13 +882,23 @@ section {
     }
     
     .portfolio-image {
-        height: 200px;
+        height: 180px;
+    }
+    
+    .portfolio-title {
+        font-size: 1rem;
+    }
+    
+    .portfolio-description {
+        font-size: 0.8rem;
     }
     
     .whatsapp-fixed {
         width: 50px;
         height: 50px;
         font-size: 1.25rem;
+        bottom: 15px;
+        right: 15px;
     }
 }
 
@@ -850,6 +930,11 @@ section {
     
     .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .portfolio-image {
+        height: 180px;
     }
 }
 
@@ -1029,4 +1114,38 @@ button::-moz-focus-inner {
 /* Para navegadores WebKit (Chrome, Safari) */
 button::-webkit-focus-ring-color {
     outline: none;
+}
+
+/* Placeholder para imagens do portfólio que não carregam */
+.portfolio-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #222 0%, #333 50%, #222 100%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    z-index: 0;
+}
+
+.portfolio-image img.loaded + ::before {
+    display: none;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.portfolio-image img {
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-image img.loaded {
+    opacity: 1;
 }
