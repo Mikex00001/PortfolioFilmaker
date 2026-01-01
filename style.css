@@ -1,0 +1,1032 @@
+/* Reset e Variáveis */
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --off-white: #f5f5f5;
+    --gray: #888888;
+    --light-gray: #444444;
+    --accent: #8b0000;
+    --whatsapp-green: #25D366;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    background-color: var(--black);
+    color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: 100%;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* Header Minimalista */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 1000;
+    background-color: transparent;
+    transition: var(--transition);
+}
+
+.header.scrolled {
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 1.125rem;
+    letter-spacing: 2px;
+    color: var(--white);
+}
+
+/* REMOVER BORDAS DE FOÇA/CLICK DE TODOS OS BOTÕES */
+button, 
+button:focus, 
+button:active,
+.menu-btn,
+.menu-btn:focus,
+.menu-btn:active,
+.close-nav,
+.close-nav:focus,
+.close-nav:active,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-orcamento:focus,
+.btn-orcamento:active,
+a:focus,
+a:active {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    z-index: 1001;
+    padding: 0;
+}
+
+.menu-btn span {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: var(--white);
+    position: absolute;
+    left: 0;
+    transition: var(--transition);
+}
+
+.menu-btn span:first-child {
+    top: 0;
+}
+
+.menu-btn span:last-child {
+    bottom: 0;
+}
+
+.menu-btn.active span:first-child {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-btn.active span:last-child {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Menu Lateral */
+.side-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: var(--black);
+    z-index: 1000;
+    transition: right 0.4s ease;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.side-nav.active {
+    right: 0;
+}
+
+.nav-content {
+    padding: 80px 25px 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.close-nav {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.25rem;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: var(--transition);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-nav:hover {
+    opacity: 1;
+}
+
+.nav-list {
+    list-style: none;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.nav-link {
+    display: block;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: 300;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--accent);
+    padding-left: 10px;
+}
+
+.nav-footer {
+    margin-top: auto;
+    width: 100%;
+}
+
+.contact-info {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.contact-info p {
+    font-size: 0.875rem;
+    color: var(--gray);
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+.social-link {
+    color: var(--gray);
+    font-size: 1.125rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+}
+
+.social-link:hover {
+    color: var(--white);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+
+.hero-content {
+    max-width: 100%;
+    width: 100%;
+}
+
+.hero-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 300;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    line-height: 1;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    font-size: clamp(0.875rem, 3vw, 1.125rem);
+    font-weight: 300;
+    color: var(--accent);
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.hero-description {
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+    font-weight: 300;
+    color: var(--off-white);
+    margin-bottom: 40px;
+    max-width: 500px;
+    line-height: 1.8;
+    width: 100%;
+}
+
+.hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+}
+
+.btn-primary, .btn-orcamento {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 28px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    min-height: 48px;
+    width: auto;
+    flex-shrink: 0;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: #9a0000;
+    transform: translateY(-2px);
+}
+
+.btn-primary i {
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-primary:hover i {
+    transform: translateX(4px);
+}
+
+/* Botão de Orçamento Estilizado */
+.btn-orcamento {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-orcamento:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Seções */
+section {
+    padding: clamp(40px, 8vw, 80px) 0;
+    width: 100%;
+}
+
+.section-header {
+    margin-bottom: clamp(30px, 6vw, 60px);
+    width: 100%;
+}
+
+.section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 6vw, 3rem);
+    line-height: 1.1;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.section-subtitle {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    font-weight: 300;
+    color: var(--gray);
+    letter-spacing: 1px;
+}
+
+/* Portfolio */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 30px;
+    width: 100%;
+}
+
+.portfolio-item {
+    background-color: transparent;
+    transition: var(--transition);
+    width: 100%;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+}
+
+.portfolio-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+    aspect-ratio: 16/9;
+}
+
+.portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.portfolio-item:hover .portfolio-image img {
+    transform: scale(1.05);
+}
+
+.portfolio-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.portfolio-year,
+.portfolio-category {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: var(--gray);
+    letter-spacing: 1px;
+}
+
+.portfolio-title {
+    font-size: clamp(1.125rem, 3vw, 1.25rem);
+    font-weight: 300;
+    margin-bottom: 10px;
+    color: var(--white);
+}
+
+.portfolio-description {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: var(--off-white);
+    line-height: 1.6;
+}
+
+/* About Section */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(30px, 6vw, 60px);
+    align-items: center;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.about-text {
+    width: 100%;
+    order: 2;
+}
+
+@media (min-width: 768px) {
+    .about-text {
+        order: 1;
+    }
+}
+
+.about-details {
+    margin: 30px 0 40px;
+    width: 100%;
+}
+
+.about-details p {
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+    font-weight: 300;
+    color: var(--off-white);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.skills h3 {
+    font-size: 1.125rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    color: var(--white);
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+
+.skill-item {
+    padding: 8px 16px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: var(--off-white);
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.skill-item:hover {
+    border-color: var(--accent);
+    color: var(--white);
+}
+
+.about-image {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    order: 1;
+}
+
+@media (min-width: 768px) {
+    .about-image {
+        order: 2;
+    }
+}
+
+.image-container {
+    width: 100%;
+    max-width: min(400px, 100%);
+    margin: 0 auto;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+/* Contact Section */
+.contact-content {
+    width: 100%;
+}
+
+.contact-info {
+    width: 100%;
+}
+
+.contact-details {
+    margin: 40px 0 50px;
+    width: 100%;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.contact-item i {
+    color: var(--accent);
+    font-size: 1.125rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.contact-label {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.contact-value {
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+    font-weight: 300;
+    color: var(--white);
+    text-decoration: none;
+    transition: var(--transition);
+    word-break: break-word;
+}
+
+.contact-value:hover {
+    color: var(--accent);
+}
+
+.orcamento-cta {
+    margin-top: 40px;
+    width: 100%;
+}
+
+.contact .social-links {
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Footer */
+.footer {
+    padding: 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+}
+
+.footer-logo .logo-text {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+}
+
+.footer-copyright p {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: var(--gray);
+}
+
+/* WhatsApp Fixo */
+.whatsapp-fixed {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--whatsapp-green);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    z-index: 999;
+    transition: var(--transition);
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-fixed:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+}
+
+/* CENTRALIZAR ELEMENTOS NO MOBILE */
+@media (max-width: 768px) {
+    /* Hero Section */
+    .hero-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-description {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .hero-links {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .btn-primary, .btn-orcamento {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    /* Section headers */
+    .section-header {
+        text-align: center;
+    }
+    
+    /* Portfolio */
+    .portfolio-grid {
+        justify-items: center;
+    }
+    
+    .portfolio-item {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .portfolio-meta {
+        justify-content: center;
+    }
+    
+    .portfolio-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    /* About Section */
+    .about-content {
+        text-align: center;
+    }
+    
+    .about-details {
+        text-align: center;
+    }
+    
+    .skills {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .skills-list {
+        justify-content: center;
+    }
+    
+    .about-image {
+        order: 1;
+        margin-bottom: 30px;
+    }
+    
+    .about-text {
+        order: 2;
+    }
+    
+    /* Contact Section */
+    .contact-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .contact-item i {
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+    
+    .orcamento-cta {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .orcamento-cta .btn-orcamento {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    /* Social links */
+    .social-links {
+        justify-content: center;
+    }
+    
+    /* Footer */
+    .footer-content {
+        text-align: center;
+        align-items: center;
+    }
+    
+    .skills-list {
+        justify-content: center;
+        gap: 8px;
+    }
+    
+    .skill-item {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+}
+
+/* Responsivo Mobile First */
+/* Telas muito pequenas (até 360px) */
+@media (max-width: 360px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    .portfolio-image {
+        height: 200px;
+    }
+    
+    .whatsapp-fixed {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+}
+
+/* Telas pequenas (361px - 480px) */
+@media (max-width: 480px) {
+    .side-nav {
+        width: 85%;
+        max-width: 280px;
+    }
+    
+    .nav-content {
+        padding: 70px 20px 30px;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Tablets (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .hero-links {
+        flex-direction: row;
+    }
+    
+    .btn-primary, .btn-orcamento {
+        width: auto;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop (769px - 992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* Desktop grande (acima de 992px) */
+@media (min-width: 993px) {
+    .hero-title {
+        font-size: 4.5rem;
+    }
+    
+    .section-title {
+        font-size: 3rem;
+    }
+}
+
+/* Landscape para mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 100px 0 60px;
+    }
+    
+    .side-nav {
+        overflow-y: auto;
+    }
+}
+
+/* Touch devices optimization */
+@media (hover: none) and (pointer: coarse) {
+    .portfolio-item:hover {
+        transform: none;
+    }
+    
+    .portfolio-item:hover .portfolio-image img {
+        transform: none;
+    }
+    
+    .skill-item:hover {
+        transform: none;
+    }
+    
+    .btn-primary:hover, .btn-orcamento:hover {
+        transform: none;
+    }
+    
+    .btn-primary:hover i {
+        transform: none;
+    }
+    
+    .nav-link:hover {
+        padding-left: 0;
+    }
+}
+
+/* High DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Print styles */
+@media print {
+    .header, .whatsapp-fixed, .side-nav, .menu-btn {
+        display: none;
+    }
+    
+    body {
+        color: #000;
+        background: #fff;
+    }
+    
+    .container {
+        max-width: 100%;
+    }
+}
+
+/* Animações Simples */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* Ajustes para evitar overflow horizontal */
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Melhorias de acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Loading states */
+.loading {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Correções específicas para o seu HTML */
+.contact .social-links {
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.orcamento-cta .btn-orcamento {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .orcamento-cta .btn-orcamento {
+        width: auto;
+    }
+}
+
+/* Garantir que o menu mobile funcione bem */
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+    
+    .side-nav.active ~ main,
+    .side-nav.active ~ footer {
+        filter: brightness(0.7);
+        transition: filter 0.3s ease;
+    }
+}
+
+/* Remove highlight no mobile */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Para navegadores mobile (iOS/Android) */
+button,
+input[type="button"],
+input[type="submit"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Para navegadores Firefox */
+button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/* Para navegadores WebKit (Chrome, Safari) */
+button::-webkit-focus-ring-color {
+    outline: none;
+}
